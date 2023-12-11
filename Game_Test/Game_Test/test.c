@@ -7,11 +7,11 @@ int main()
 }
 void game()
 {
-	char Board[ROW][COL] = { 0 };
-	//初始化
-	InitBoard(Board, ROW, COL);
+	char board[ROW][COL] = { 0 };
+	//初始化数据
+	InitBoard(board, ROW, COL);
 	//打印棋盘
-	DispalyBoard(Board, ROW, COL);
+	DispalyBoard(board, ROW, COL);
 }
 //菜单
 void menu() {
@@ -21,7 +21,7 @@ void menu() {
 	printf("--------0.退出----------\n");
 	int input = -1;
 	do {
-		scanf("%d", &input);
+		scanf_s("%d", &input);
 		switch (input)
 		{
 		case 1:
