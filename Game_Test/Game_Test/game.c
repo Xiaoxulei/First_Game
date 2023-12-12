@@ -30,6 +30,8 @@ void InitBoard(char board[ROW][COL], int row, int col)
 //}
 
 
+
+
 //–ﬁ∏ƒ∞Ê¥Ú”°∆Â≈Ã
 void DispalyBoard(char board[ROW][COL], int row, int col)
 {
