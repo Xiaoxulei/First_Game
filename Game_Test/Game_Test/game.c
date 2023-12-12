@@ -30,8 +30,6 @@ void InitBoard(char board[ROW][COL], int row, int col)
 //}
 
 
-
-
 //–ﬁ∏ƒ∞Ê¥Ú”°∆Â≈Ã
 void DispalyBoard(char board[ROW][COL], int row, int col)
 {
@@ -114,27 +112,54 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 //≈–∂œ ‰”Æ
 int Judge_Win(char board[ROW][COL]) 
 {
-	int i = 0;
-	int j = 0;
-	for (i = 0; i < ROW; i++)
+	int count = 0;
+	//≈–∂œ∆Â≈Ã «∑Ò“—¬˙
+	for (int i = 0; i < ROW; i++)
 	{
-		if (board[i][0] == board[i][1] == board[i][2])
+		for (int j = 0; j < COL; j++)
 		{
-			return 1;
-			break;
+			if (board[i][j] == ' ');
+			{
+				count++;
+				break;
+			}
 		}
-		if (board[0][i] == board[1][i] == board[i][i])
+	}	
+	if (count == 0)
+	{
+		printf("∆Â≈Ã“—¬˙£¨”Œœ∑Ω· ¯\n");
+		return -1;
+	}
+	for (int i = 0; i < ROW; i++)
+	{
+		if (board[i][0] != ' ' && board[i][1] != ' ' && board[i][2] != ' ') 
+		{
+			if (board[i][0] == board[i][1]&& board[i][0] == board[i][2])
+			{
+				return 1;
+			}
+		}
+		if (board[0][i] !=' '&& board[1][i] !=' '&& board[2 ][i]!=' ')
+		{
+			if (board[0][i] == board[1][i]&& board[0][i] == board[2][i])
+			{
+				return 1;
+			}
+		}
+	}
+	if(board[0][0]!=' '&& board[1][1]!=' '&& board[2][2]!=' ')
+	{
+		if (board[0][0] == board[1][1]&&board[0][0] == board[2][2])
 		{
 			return 1;
 		}
 	}
-	if (board[0][0] == board[1][1] == board[2][2])
+	if (board[2][0] != ' ' && board[1][1] != ' ' && board[0][2])
 	{
-		return 1;
-	}
-	if (board[2][0] == board[1][1] == board[0][2])
-	{
-		return 1;
+		if (board[2][0] == board[1][1]&& board[2][0] == board[0][2])
+		{
+			return 1;
+	    }
 	}
 	return 0;
 }

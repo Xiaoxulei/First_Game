@@ -22,8 +22,14 @@ void game()
 		//¥Ú”°∆Â≈Ã
 		/*DispalyBoard(board, ROW, COL);*/
 		//≈–∂œ ‰”Æ
+		if (Judge_Win(board) == -1)
+		{
+			break;
+		}
 		if (Judge_Win(board) == 1)
 		{
+			//¥Ú”°∆Â≈Ã
+			DispalyBoard(board, ROW, COL);
 			printf("πßœ≤ƒ„ªÒ §¡À\n");
 			break;
 		}
@@ -33,8 +39,14 @@ void game()
 		//¥Ú”°∆Â≈Ã
 		DispalyBoard(board, ROW, COL);
 		//≈–∂œ ‰”Æ
+		if (Judge_Win(board) == -1)
+		{
+			break;
+		}
 		if (Judge_Win(board) == 1)
 		{
+			//¥Ú”°∆Â≈Ã
+			DispalyBoard(board, ROW, COL);
 			printf("∫‹“≈∫∂£¨ƒ„ ‰¡À\n");
 			break;
 		}
