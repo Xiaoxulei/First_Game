@@ -1,17 +1,44 @@
 #include"game.h"
-void menu();
+
 int main()
 {
-
-	menu();
+	while (1)
+	{
+		menu();
+	}
 }
 void game()
 {
+	srand((unsigned)time(NULL));
 	char board[ROW][COL] = { 0 };
 	//初始化数据
 	InitBoard(board, ROW, COL);
 	//打印棋盘
 	DispalyBoard(board, ROW, COL);
+	while (1)
+	{
+		//玩家下棋
+		PlayerMove(board, ROW, COL);
+		//打印棋盘
+		/*DispalyBoard(board, ROW, COL);*/
+		//判断输赢
+		if (Judge_Win(board) == 1)
+		{
+			printf("恭喜你获胜了\n");
+			break;
+		}
+		Judge_Win(board);
+		//电脑下棋
+		ComputerMove( board, ROW, COL);
+		//打印棋盘
+		DispalyBoard(board, ROW, COL);
+		//判断输赢
+		if (Judge_Win(board) == 1)
+		{
+			printf("很遗憾，你输了\n");
+			break;
+		}
+	}
 }
 //菜单
 void menu() {
@@ -25,7 +52,7 @@ void menu() {
 		switch (input)
 		{
 		case 1:
-			printf("开始游戏\n");
+			printf("--开始游戏--\n");
 			game();
 			break;
 		case 0:
