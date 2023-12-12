@@ -2,10 +2,7 @@
 
 int main()
 {
-	while (1)
-	{
 		menu();
-	}
 }
 void game()
 {
@@ -24,6 +21,8 @@ void game()
 		//判断输赢
 		if (Judge_Win(board) == -1)
 		{
+			DispalyBoard(board, ROW, COL);
+			printf("棋盘已满，游戏结束\n");
 			break;
 		}
 		if (Judge_Win(board) == 1)
@@ -41,6 +40,9 @@ void game()
 		//判断输赢
 		if (Judge_Win(board) == -1)
 		{
+			//打印棋盘
+			DispalyBoard(board, ROW, COL);
+			printf("棋盘已满,游戏结束\n");
 			break;
 		}
 		if (Judge_Win(board) == 1)
@@ -53,11 +55,12 @@ void game()
 	}
 }
 //菜单
-void menu() {
+int menu() {
 	printf("---welcome to my game---\n");
 	printf("--------请选择----------\n");
 	printf("--------1.开始游戏------\n");
 	printf("--------0.退出----------\n");
+	printf("------------------------\n");
 	int input = -1;
 	do {
 		scanf_s("%d", &input);
@@ -75,4 +78,5 @@ void menu() {
 			break;
 		}
 	} while (input);
+	return 0;
 }

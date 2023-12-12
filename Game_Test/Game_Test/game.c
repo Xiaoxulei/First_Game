@@ -127,7 +127,6 @@ int Judge_Win(char board[ROW][COL])
 	}	
 	if (count == 0)
 	{
-		printf("ÆåÅÌÒÑÂú£¬ÓÎÏ·½áÊø\n");
 		return -1;
 	}
 	for (int i = 0; i < ROW; i++)
@@ -139,7 +138,7 @@ int Judge_Win(char board[ROW][COL])
 				return 1;
 			}
 		}
-		if (board[0][i] !=' '&& board[1][i] !=' '&& board[2 ][i]!=' ')
+		if (board[0][i] !=' '&& board[1][i] != ' '&& board[2 ][i] != ' ')
 		{
 			if (board[0][i] == board[1][i]&& board[0][i] == board[2][i])
 			{
