@@ -7,6 +7,7 @@ int main()
 void game()
 {
 	srand((unsigned)time(NULL));
+
 	char board[ROW][COL] = { 0 };
 	//初始化数据
 	InitBoard(board, ROW, COL);
@@ -32,7 +33,6 @@ void game()
 			printf("恭喜你获胜了\n");
 			break;
 		}
-		Judge_Win(board);
 		//电脑下棋
 		ComputerMove( board, ROW, COL);
 		//打印棋盘
@@ -56,13 +56,13 @@ void game()
 }
 //菜单
 void menu() {
+	int input = -1;
+	do {
 	printf("---welcome to my game---\n");
 	printf("--------请选择----------\n");
 	printf("--------1.开始游戏------\n");
 	printf("--------0.退出----------\n");
 	printf("------------------------\n");
-	int input = -1;
-	do {
 		scanf_s("%d", &input);
 		switch (input)
 		{
@@ -77,5 +77,5 @@ void menu() {
 			printf("请重新选择\n");
 			break;
 		}
-	} while (1);
+	} while (input);
 }
