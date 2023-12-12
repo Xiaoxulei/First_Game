@@ -21,3 +21,5 @@ void ComputerMove(char board[ROW][COL], int row, int col);
 
 //≈–∂œ ‰”Æ
 int Judge_Win(char board[ROW][COL]);
+
+//≈–∂œ ‰”Æ
