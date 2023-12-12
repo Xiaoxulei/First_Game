@@ -55,7 +55,7 @@ void game()
 	}
 }
 //菜单
-int menu() {
+void menu() {
 	printf("---welcome to my game---\n");
 	printf("--------请选择----------\n");
 	printf("--------1.开始游戏------\n");
@@ -77,6 +77,5 @@ int menu() {
 			printf("请重新选择\n");
 			break;
 		}
-	} while (input);
-	return 0;
+	} while (1);
 }

@@ -7,7 +7,6 @@
 #define COL 3
 
 void game();
-
 void menu();
 //≥ı ºªØ∆Â≈Ã
 void InitBoard(char board[ROW][COL], int row, int col);
