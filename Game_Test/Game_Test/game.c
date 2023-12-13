@@ -109,56 +109,121 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 	
 }
 
-//≈–∂œ ‰”Æ
-int Judge_Win(char board[ROW][COL]) 
+//≥ı∞Ê≈–∂œ ‰”Æ
+//int Judge_Win(char board[ROW][COL]) 
+//{
+//	int count = 0;
+//	//≈–∂œ∆Â≈Ã «∑Ò“—¬˙
+//	for (int i = 0; i < ROW; i++)
+//	{
+//		for (int j = 0; j < COL; j++)
+//		{
+//			if (board[i][j] == ' ')
+//			{
+//				count++;
+//				break;
+//			}
+//		}
+//	}	
+//	if (count == 0)
+//	{
+//		return -1;
+//	}
+//	for (int i = 0; i < ROW; i++)
+//	{
+//		if (board[i][0] != ' ' && board[i][1] != ' ' && board[i][2] != ' ') 
+//		{
+//			if (board[i][0] == board[i][1]&& board[i][0] == board[i][2])
+//			{
+//				return 1;
+//			}
+//		}
+//		if (board[0][i] !=' '&& board[1][i] != ' '&& board[2 ][i] != ' ')
+//		{
+//			if (board[0][i] == board[1][i]&& board[0][i] == board[2][i])
+//			{
+//				return 1;
+//			}
+//		}
+//	}
+//	if(board[0][0]!=' '&& board[1][1]!=' '&& board[2][2]!=' ')
+//	{
+//		if (board[0][0] == board[1][1]&&board[0][0] == board[2][2])
+//		{
+//			return 1;
+//		}
+//	}
+//	if (board[2][0] != ' ' && board[1][1] != ' ' && board[0][2])
+//	{
+//		if (board[2][0] == board[1][1]&& board[2][0] == board[0][2])
+//		{
+//			return 1;
+//	    }
+//	}
+//	return 0;
+//}
+
+//≈–∂œ∆Â≈Ã ±∫Ú“—¬˙
+int Judge_Full(char board[ROW][COL],int row, int col)
 {
-	int count = 0;
-	//≈–∂œ∆Â≈Ã «∑Ò“—¬˙
 	for (int i = 0; i < ROW; i++)
 	{
 		for (int j = 0; j < COL; j++)
 		{
-			if (board[i][j] == ' ');
+			if (board[i][j] == ' ')
 			{
-				count++;
-				break;
-			}
-		}
-	}	
-	if (count == 0)
-	{
-		return -1;
-	}
-	for (int i = 0; i < ROW; i++)
-	{
-		if (board[i][0] != ' ' && board[i][1] != ' ' && board[i][2] != ' ') 
-		{
-			if (board[i][0] == board[i][1]&& board[i][0] == board[i][2])
-			{
-				return 1;
-			}
-		}
-		if (board[0][i] !=' '&& board[1][i] != ' '&& board[2 ][i] != ' ')
-		{
-			if (board[0][i] == board[1][i]&& board[0][i] == board[2][i])
-			{
-				return 1;
+				return 0;
 			}
 		}
 	}
-	if(board[0][0]!=' '&& board[1][1]!=' '&& board[2][2]!=' ')
+
+	//for (int i = 0; i < ROW; i++)
+	//	for (int j = 0; j < COL; j++)
+	//		if (board[i][j] == ' ')
+	//			return 0;
+
+	return 1;
+}
+
+char Judge_Win(char board[ROW][COL], int row, int col)
+{
+	//≈–∂œ∆Â≈Ã «∑Ò“—¬˙
+	if (Judge_Full(board,row,col))
 	{
-		if (board[0][0] == board[1][1]&&board[0][0] == board[2][2])
+		return 'n';
+	}
+	for(int i = 0; i < ROW; i++)
+	{
+		//≈–∂œ––
+		if (board[i][1] != ' ')
 		{
-			return 1;
+			if (board[i][0] == board[i][1] && board[i][0] == board[i][2])
+			{
+				return board[i][1];
+			}
+		}
+		//≈–∂œ¡–
+		if (board[1][i] != ' ')
+		{
+			if (board[0][i] == board[1][i] && board[0][i] == board[2][i])
+			{
+				return board[1][i];
+			}
 		}
 	}
-	if (board[2][0] != ' ' && board[1][1] != ' ' && board[0][2])
-	{
-		if (board[2][0] == board[1][1]&& board[2][0] == board[0][2])
+		//≈–∂œ∂‘Ω«œﬂ
+		if (board[1][1] != ' ')
 		{
-			return 1;
-	    }
-	}
-	return 0;
+			//≈–∂œ÷˜∂‘Ω«œﬂ
+			if (board[0][0] == board[1][1] && board[0][0] == board[2][2])
+			{
+				return board[1][1];
+			}
+			//≈–∂œ∏±∂‘Ω«œﬂ
+			if (board[2][0] == board[1][1] && board[2][0] == board[0][2])
+			{
+				return board[1][1];
+			}
+		}	
+		return 'c';
 }

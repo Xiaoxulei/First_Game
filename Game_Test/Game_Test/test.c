@@ -2,55 +2,72 @@
 
 int main()
 {
-		menu();
+	srand((unsigned)time(NULL));//设置随机生成数的生成起点
+	menu();
 }
 void game()
 {
-	srand((unsigned)time(NULL));
-
-	char board[ROW][COL] = { 0 };
+	char board[ROW][COL] = {0};
 	//初始化数据
 	InitBoard(board, ROW, COL);
 	//打印棋盘
 	DispalyBoard(board, ROW, COL);
+	int count = 0;
 	while (1)
 	{
-		//玩家下棋
+//玩家下棋
+		printf("玩家下棋\n");
 		PlayerMove(board, ROW, COL);
-		//打印棋盘
-		/*DispalyBoard(board, ROW, COL);*/
-		//判断输赢
-		if (Judge_Win(board) == -1)
+		count++;
+		////打印棋盘
+		//DispalyBoard(board, ROW, COL);
+		//判断棋盘是否已满
+		if (count > 2)
 		{
-			DispalyBoard(board, ROW, COL);
-			printf("棋盘已满，游戏结束\n");
-			break;
+			if (Judge_Win(board, ROW, COL) != 'c')
+			{
+				if (Judge_Win(board, ROW, COL) == 'n')
+				{
+					//打印棋盘
+					DispalyBoard(board, ROW, COL);
+					printf("平局\n");
+					break;
+				}
+				if (Judge_Win(board, ROW, COL) == '*')
+				{
+					//打印棋盘
+					DispalyBoard(board, ROW, COL);
+					printf("恭喜你获胜了!\n");
+					break;
+				}
+			}
 		}
-		if (Judge_Win(board) == 1)
-		{
-			//打印棋盘
-			DispalyBoard(board, ROW, COL);
-			printf("恭喜你获胜了\n");
-			break;
-		}
-		//电脑下棋
+//电脑下棋
+		printf("电脑下棋\n");
 		ComputerMove( board, ROW, COL);
+		count++;
 		//打印棋盘
 		DispalyBoard(board, ROW, COL);
 		//判断输赢
-		if (Judge_Win(board) == -1)
+		if (count > 2)
 		{
-			//打印棋盘
-			DispalyBoard(board, ROW, COL);
-			printf("棋盘已满,游戏结束\n");
-			break;
-		}
-		if (Judge_Win(board) == 1)
-		{
-			//打印棋盘
-			DispalyBoard(board, ROW, COL);
-			printf("很遗憾，你输了\n");
-			break;
+			if (Judge_Win(board, ROW, COL) != 'c')
+			{
+				if (Judge_Win(board, ROW, COL) == 'n')
+				{
+					//打印棋盘
+					DispalyBoard(board, ROW, COL);
+					printf("平局\n");
+					break;
+				}
+				if (Judge_Win(board, ROW, COL) == '#')
+				{
+					//打印棋盘
+					DispalyBoard(board, ROW, COL);
+					printf("很遗憾，你输了！\n");
+					break;
+				}
+			}
 		}
 	}
 }

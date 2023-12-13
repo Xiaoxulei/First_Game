@@ -21,6 +21,7 @@ void PlayerMove(char board[ROW][COL], int row, int col);
 void ComputerMove(char board[ROW][COL], int row, int col);
 
 //≈–∂œ ‰”Æ
-int Judge_Win(char board[ROW][COL]);
+char Judge_Win(char board[ROW][COL], int row, int col);
 
-//≈–∂œ ‰”Æ
+//≈–∂œ∆Â≈Ã «∑Ò“—¬˙
+int Judge_Full(char board[ROW][COL], int row, int col);
